@@ -1,0 +1,27 @@
+Done TD-IDF method.
+Query: byd
+[BYD_e6|BYD e6]	2,091	17.3
+[JAC_Motors|JAC J3 EV]	2,485	20.6
+[Zotye_Auto|Zotye]	845	7.0
+Note: (1) Market share as percentage of the 12,085 pure electric cars sold in 2012.	Note: (1) Market share as percentage of the 12,085 pure electric cars sold in 2012.	Note: (1) Market share as percentage of the 12,085 pure electric cars sold in 2012
+[Changan_Automobile|Chang'an CX30 EV]	100	0.8
+[BAIC_Group|BAIC_Group]	644	5.3
+[SAIC_Motor|SAIC]	238	2.0
+Total registrations	12,085	100
+[Zotye_Auto|Zotye 5008 EV]	142	1.2
+[Chevrolet_Sail|Shanghai-GM Springo EV]	11	0.1
+[Riich|Chery Riich M1 EV]	90	0.7
+[Chery_QQ3|Chery QQ3 EV]	5,305	43.9
+[Zotye_Auto|Zotye M300 EV]	134	1.1
+Query: fuzhou
+[Shandong|Shandong]	[Qingdao|Qingdao]	1986	11,026	8,715,100	胶	[Shinan_District|Shinan
+[Guangdong|Guangdong]	[Shenzhen|Shenzhen]	1988	2,050	10,357,938	深	[Futian_District|Futian
+[Fujian|Fujian]	[Xiamen|Xiamen]	1988	1,699	3,531,347	鹭	[Siming_District|Siming
+[Zhejiang|Zhejiang]	[Ningbo|Ningbo]	1987	9,816	7,605,700	甬	[Haishu_District|Haishu
+[Liaoning|Liaoning]	[Dalian|Dalian]	1984	13,237	6,690,432	连	[Xigang_District|Xigang
+Query: irish counties area
+Chekiang Province of the Republic of China, between 1949 and 1955.	Chekiang Province of the Republic of China, between 1949 and 1955
+[County_(Taiwan)|County]	7 counties (1951) 4 counties and 2 administrative regions (1954
+Capital	[Dachen_Islands|Tachen Islands
+[Area|Area]	17km
+[Population|Population]	170
