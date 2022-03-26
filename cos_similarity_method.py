@@ -2,7 +2,6 @@ import os.path
 
 import fasttext
 import json
-import fasttext
 import numpy as np
 import scipy.spatial.distance as dis
 import re
@@ -24,12 +23,13 @@ def read_jsonl(jsonl_file):
             lines.append(json.loads(line.strip()))  # strip()用于去掉两边多余空格
         return lines
 
+
 def sort_rows(args, table, model, fp):
     """
     ROW-MEAN 行向的平均方法
     :param table: 当前需要生成片段的表格
     :param model: 训练好的fattext模型
-    :return: 一个行相关性降序排列的表格
+    最终向输出文件写入一个行相关性降序排列的表格
     """
     query = table['query'].lower().split();
     table_data = json.loads(table['table']['raw_json'])['data']
@@ -63,7 +63,7 @@ def tfidf_keyword_sort_rows(args, table, model, fp):
     用TF-IDF方法寻找每一行的关键tokens，与query的关键token进行余弦相似度的计算
     :param table: 当前需要生成片段的表格
     :param model: 训练好的fattext模型
-    :return: 一个行相关性降序排列的表格
+    最终向输出文件写入一个行相关性降序排列的表格
     """
     my_tfidf = TfIdf(stopword_filename='data/stopwords.txt')
     pattern = re.compile('[\W_]+')
