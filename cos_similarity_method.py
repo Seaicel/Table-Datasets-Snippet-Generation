@@ -108,11 +108,11 @@ def tfidf_keyword_sort_rows(args, table, model, fp):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_data", default="/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/data/0_test.jsonl",
+    parser.add_argument("--input_data", default="./data/0_test.jsonl",
                         type=str, required=False, help="input data path.")
-    parser.add_argument("--fasttext_model", default="/Users/dongshuhan/CODE/Python/pre_trained/wiki.simple/wiki.simple.bin",
+    parser.add_argument("--fasttext_model", default="./pre_trained/wiki.simple/wiki.simple.bin",
                         type=str, required=False, help=".bin fasttext model path.")
-    parser.add_argument("--output_path", default="/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/output",
+    parser.add_argument("--output_path", default="./output",
                         type=str, required=False, help="Store output data in this directory.")
     parser.add_argument("--method", default=None, type=str, required=True,
                         help="Method to calculate cosine similarity. ROW-MEAN or TF-IDF.")

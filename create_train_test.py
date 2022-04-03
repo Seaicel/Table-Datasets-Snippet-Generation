@@ -26,12 +26,18 @@ def convert_tq_pair_to_rq_pair(datasets, out_file):
         qid = dataset['qid']
         docid = dataset['docid']
         query = dataset['query']
+        caption = dataset['table']['caption']
+        title = json.loads(dataset['table']['raw_json'])['title']
+        headings = []
+        for heading in title:
+            headings.append(heading)
         table_data = json.loads(dataset['table']['raw_json'])['data']
-        for row in table_data:
+        for idx, row in enumerate(table_data):
             cells = []
             for cell in row:
                 cells.append(cell)
-            dic = {'rel': rel, 'qid': qid, 'docid': docid, 'query': query, 'row_data': cells}
+            dic = {'rel': rel, 'qid': qid, 'docid': docid + ('-row_{0}'.format(idx)), 'query': query,
+                   'row_data': cells, 'caption': caption, 'headings': headings}
             json.dump(dic, out_file)
             out_file.write('\n')
 
@@ -62,9 +68,9 @@ def divide_k_fold_sets(datasets_file, k=5):
     for i in range(k):
         train_lines, test_lines = create_ith_set(i, k, lines)
         output_train_file = open(
-            "/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/data/{0}_train.jsonl".format(i), "w")
+            "./data/{0}_train.jsonl".format(i), "w")
         output_test_file = open(
-            "/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/data/{0}_test.jsonl".format(i), "w")
+            "./data/{0}_test.jsonl".format(i), "w")
         for line in train_lines:
             output_train_file.write(line)
         for line in test_lines:
@@ -74,10 +80,13 @@ def divide_k_fold_sets(datasets_file, k=5):
 
 
 def main():
-    datasets = read_json("/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/data/all.json")
+    datasets = read_json("./data/all.json")
     processed_datasets_file = open(
-        "/Users/dongshuhan/CODE/Python/Table-Datasets-Snippet-Generation/data/processed_all.jsonl", "r")
-    # convert_tq_pair_to_rq_pair(datasets, processed_datasets_file)
+        "./data/processed_all.jsonl", "w")
+    convert_tq_pair_to_rq_pair(datasets, processed_datasets_file)
+    processed_datasets_file.close()
+    processed_datasets_file = open(
+        "./data/processed_all.jsonl", "r")
     divide_k_fold_sets(processed_datasets_file)
     processed_datasets_file.close()
 
